@@ -3,17 +3,17 @@ import java.awt.event.*;
 import java.awt.geom.*;
 import javax.swing.*;
 
-public class InicializarJogo extends JFrame
+public class Game extends JFrame
 {
 
     private static int WIDTH = 800;
     private static int HEIGHT = 600;
     
     
-    public InicializarJogo(){
+    public Game(){
         
          // Adiciona o JPanel do jogo
-        add(new Jogo());
+        add(new Board());
 
         // Define a saida da aplicação
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -22,7 +22,7 @@ public class InicializarJogo extends JFrame
         // A localização
         setLocationRelativeTo(null);
         // O titulo da janela
-        setTitle("Slide-Puzzle");
+        setTitle("Snake");
         // Impede o redimensionamento da janela
         setResizable(false);
         // Mostra a janela
@@ -30,7 +30,7 @@ public class InicializarJogo extends JFrame
         
     }
     public static void main (String args[]){
-        new InicializarJogo();
+        new Game();
     }
     
     

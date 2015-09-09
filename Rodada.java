@@ -1,56 +1,66 @@
 import java.awt.Image;
+import java.awt.*;
 import javax.swing.*;
+import javax.swing.ImageIcon;
+import java.awt.event.KeyEvent;
 /**
- * Escreva a descrição da classe Rodada aqui.
+ * Write a description of class Node here.
  * 
- * @author (seu nome) 
- * @version (número de versão ou data)
+ * @author (your name) 
+ * @version (a version number or a date)
  */
 public class Rodada extends JPanel
 {
-    private Rodada esquerda;
-    private Rodada cima;
-    private Rodada direita;
-    private Rodada baixo;
-    
-    private byte[] numeros = new byte[10];
-    
-    private Image image;
-    
-    
-    public Rodada(){
-        
+    // instance variables - replace the example below with your own
+    private Object x;
+    private Rodada p1;
+    private Rodada p2;
+    private Rodada p3;
+    private Rodada p4;    
+
+    /**
+     * Constructor for objects of class Node
+     */
+    public Rodada()
+    {
+
     }
     
-    public void setEsquerda(Rodada _Rodada){
-        esquerda = _Rodada;
+    public void setP1( Rodada p1){
+        this.p1 = p1;
     }
     
-    public Rodada getEsquerda(){
-        return esquerda;
+    public  Rodada getP1(){
+        return this.p1;
     }
     
-    public void setCima(Rodada _Rodada){
-        cima = _Rodada;
+    public void setP2( Rodada p2){
+        this.p2 = p2;
     }
     
-    public Rodada getCima(){
-        return cima;
+    public  Rodada getP2(){
+        return this.p2;
     }
     
-    public void setDireita(Rodada _Rodada){
-        direita = _Rodada;
+    public void setP3( Rodada p3){
+        this.p3 = p3;
     }
     
-    public Rodada getDireita(){
-        return direita;
+    public  Rodada getP3(){
+        return this.p3;
     }
     
-    public void setBaixo(Rodada _Rodada){
-        baixo = _Rodada;
+    public void setP4( Rodada p4){
+        this.p4 = p4;
     }
     
-    public Rodada getBaixo(){
-        return baixo;
+    public  Rodada getP4(){
+        return this.p4;
     }
+    
+    public Rodada(String args)
+    {
+        this.x = args;
+    } 
+    
 }
