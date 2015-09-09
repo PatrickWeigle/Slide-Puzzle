@@ -21,6 +21,9 @@ public class Mesa extends JPanel
     private int y;    
     private Image image;
     public static byte[] buttons = {1,2,3,4,5,6,7,8,9};
+    private static final int[] X = {265,346,427,265,346,427,265,346,427};
+    private static final int[] Y = {150,150,150,231,231,231,312,312,312};
+    private int[] pos = {0,1,2,3,4,5,6,7,8};
     
     public Mesa() {        
         x = 0;
@@ -28,6 +31,13 @@ public class Mesa extends JPanel
        // Collections.sort(buttons);
     }
     
+    public int xX(int i){
+        return X[i];
+    }
+    
+    public int yY(int i){
+        return Y[i];
+    }
     
     
     public void setIncrementX(int incrementX){
