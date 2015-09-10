@@ -15,20 +15,34 @@ dependency5.from=Rodada
 dependency5.to=Rodada
 dependency5.type=UsesDependency
 objectbench.height=76
+<<<<<<< HEAD
 objectbench.width=356
 package.editor.height=562
 package.editor.width=553
 package.editor.x=-7
+=======
+objectbench.width=764
+package.editor.height=688
+package.editor.width=666
+package.editor.x=0
+>>>>>>> origin/master
 package.editor.y=0
 package.numDependencies=5
 package.numTargets=4
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
+<<<<<<< HEAD
 target1.editor.height=689
 target1.editor.width=800
 target1.editor.x=340
 target1.editor.y=17
+=======
+target1.editor.height=860
+target1.editor.width=800
+target1.editor.x=0
+target1.editor.y=0
+>>>>>>> origin/master
 target1.height=50
 target1.name=Mesa
 target1.naviview.expanded=false

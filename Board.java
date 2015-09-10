@@ -30,11 +30,21 @@ public class Board extends JPanel implements ActionListener {
     private Image num6 = new ImageIcon(this.getClass().getResource("images/6.png")).getImage();
     private Image num7 = new ImageIcon(this.getClass().getResource("images/7.png")).getImage();
     private Image num8 = new ImageIcon(this.getClass().getResource("images/8.png")).getImage();
+<<<<<<< HEAD
 
     private Image[] nums = {num1,num2,null,num3,num4,num5,num6,num7,num8};
 
     //private Image num9 = new ImageIcon(this.getClass().getResource("images/9.png")).getImage();
 
+=======
+    
+    private Image[] nums = {num1,num2,num3,num4,num5,num6,num7,num8};
+    
+    
+    //private Image num9 = new ImageIcon(this.getClass().getResource("images/9.png")).getImage();
+    
+    
+>>>>>>> origin/master
     public Board() {
 
         addKeyListener(new TAdapter());
@@ -75,10 +85,24 @@ public class Board extends JPanel implements ActionListener {
         super.paint(g);
         Graphics2D g2d = (Graphics2D)g;    
         g2d.drawImage(mesa,-70,0,this);
+<<<<<<< HEAD
         for(int i=0;i<nums.length;i++){
             g2d.drawImage(nums[i],posicoes.xX(i),posicoes.yY(i),this);
         }
 
+=======
+        g2d.drawImage(nums[0],posicoes.xX(0),posicoes.yY(0),this);
+        g2d.drawImage(nums[1],posicoes.xX(1),posicoes.yY(1),this);
+        g2d.drawImage(nums[2],posicoes.xX(2),posicoes.yY(2),this);
+        g2d.drawImage(nums[3],posicoes.xX(3),posicoes.yY(3),this);
+        g2d.drawImage(nums[4],posicoes.xX(4),posicoes.yY(4),this);
+        g2d.drawImage(nums[5],posicoes.xX(5),posicoes.yY(5),this);
+        g2d.drawImage(nums[6],posicoes.xX(6),posicoes.yY(6),this);
+        g2d.drawImage(nums[7],posicoes.xX(7),posicoes.yY(7),this);
+        //g2d.drawImage(num9,posicoes.xX(8),posicoes.yY(8),this);
+        
+        
+>>>>>>> origin/master
         Toolkit.getDefaultToolkit().sync();
         g.dispose();
 

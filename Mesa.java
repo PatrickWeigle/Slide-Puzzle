@@ -24,8 +24,13 @@ public class Mesa extends JPanel
     public static byte[] buttons = {1,2,3,4,5,6,7,8,9};
     private static final int[] X = {265,346,427,265,346,427,265,346,427};
     private static final int[] Y = {150,150,150,231,231,231,312,312,312};
+<<<<<<< HEAD
     private byte[] pos = {0,1,2,3,4,5,6,7,8};
 
+=======
+    private int[] pos = {0,1,2,3,4,5,6,7,8};
+    
+>>>>>>> origin/master
     public Mesa() {        
         x = 0;
         y = 0;
@@ -39,8 +44,17 @@ public class Mesa extends JPanel
         // Collections.sort(buttons);
     }
     
+<<<<<<< HEAD
     public int getPos(byte i){
         return pos[i];
+=======
+    public int xX(int i){
+        return X[i];
+    }
+    
+    public int yY(int i){
+        return Y[i];
+>>>>>>> origin/master
     }
     
     public int getTamanho(){
