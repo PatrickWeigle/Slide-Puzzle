@@ -22,7 +22,7 @@ public class Game extends JFrame
         // A localização
         setLocationRelativeTo(null);
         // O titulo da janela
-        setTitle("Snake");
+        setTitle("Slide-Puzzle");
         // Impede o redimensionamento da janela
         setResizable(false);
         // Mostra a janela

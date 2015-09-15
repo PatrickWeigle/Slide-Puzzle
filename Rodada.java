@@ -1,66 +1,82 @@
 import java.awt.Image;
-import java.awt.*;
 import javax.swing.*;
-import javax.swing.ImageIcon;
-import java.awt.event.KeyEvent;
+import java.util.Random;
+import java.util.Arrays;
+
 /**
- * Write a description of class Node here.
+ * Escreva a descrição da classe Rodada aqui.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (seu nome) 
+ * @version (número de versão ou data)
  */
-public class Rodada extends JPanel
+public class Rodada //extends JPanel
 {
-    // instance variables - replace the example below with your own
-    private Object x;
-    private Rodada p1;
-    private Rodada p2;
-    private Rodada p3;
-    private Rodada p4;    
-
-    /**
-     * Constructor for objects of class Node
-     */
-    public Rodada()
-    {
-
+    private Rodada esquerda;
+    private Rodada cima;
+    private Rodada direita;
+    private Rodada baixo;
+    int indiceNulo = 8;
+    
+    private Image num1 = new ImageIcon(this.getClass().getResource("images/1.png")).getImage();
+    private Image num2 = new ImageIcon(this.getClass().getResource("images/2.png")).getImage();
+    private Image num3 = new ImageIcon(this.getClass().getResource("images/3.png")).getImage();
+    private Image num4 = new ImageIcon(this.getClass().getResource("images/4.png")).getImage();
+    private Image num5 = new ImageIcon(this.getClass().getResource("images/5.png")).getImage();
+    private Image num6 = new ImageIcon(this.getClass().getResource("images/6.png")).getImage();
+    private Image num7 = new ImageIcon(this.getClass().getResource("images/7.png")).getImage();
+    private Image num8 = new ImageIcon(this.getClass().getResource("images/8.png")).getImage();
+    Image[] numeros = {num1,num2,num3,num4,num5,num6,num7,num8,null};
+    
+    private Image image;
+    
+    public Rodada(){ 
+        Random random = new Random();
+        for (int i=0; i < (numeros.length - 1); i++) { 
+            int j = random.nextInt(numeros.length-1);
+            Image temp = numeros[i];
+            numeros[i] = numeros[j];
+            numeros[j] = temp;
+        } 
     }
     
-    public void setP1( Rodada p1){
-        this.p1 = p1;
+    public Rodada(Image[] _numeros, int indRecebeNumero, int indRecebeZero){
+        numeros = Arrays.copyOf(_numeros, _numeros.length);
+        
+        Image numero = numeros[indRecebeZero];
+        numeros[indRecebeZero] = null;
+        indiceNulo = indRecebeZero;
+        numeros[indRecebeNumero] = numero;
     }
     
-    public  Rodada getP1(){
-        return this.p1;
+    public void setEsquerda(Rodada _Rodada){
+        esquerda = _Rodada;
     }
     
-    public void setP2( Rodada p2){
-        this.p2 = p2;
+    public Rodada getEsquerda(){
+        return esquerda;
     }
     
-    public  Rodada getP2(){
-        return this.p2;
+    public void setCima(Rodada _Rodada){
+        cima = _Rodada;
     }
     
-    public void setP3( Rodada p3){
-        this.p3 = p3;
+    public Rodada getCima(){
+        return cima;
     }
     
-    public  Rodada getP3(){
-        return this.p3;
+    public void setDireita(Rodada _Rodada){
+        direita = _Rodada;
     }
     
-    public void setP4( Rodada p4){
-        this.p4 = p4;
+    public Rodada getDireita(){
+        return direita;
     }
     
-    public  Rodada getP4(){
-        return this.p4;
+    public void setBaixo(Rodada _Rodada){
+        baixo = _Rodada;
     }
     
-    public Rodada(String args)
-    {
-        this.x = args;
-    } 
-    
+    public Rodada getBaixo(){
+        return baixo;
+    }
 }
