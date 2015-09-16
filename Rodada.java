@@ -15,7 +15,7 @@ public class Rodada //extends JPanel
     private Rodada cima;
     private Rodada direita;
     private Rodada baixo;
-    int indiceNulo = 8;
+    int indiceNulo = 0;
     
     private Image num1 = new ImageIcon(this.getClass().getResource("images/1.png")).getImage();
     private Image num2 = new ImageIcon(this.getClass().getResource("images/2.png")).getImage();
@@ -32,11 +32,20 @@ public class Rodada //extends JPanel
     public Rodada(){ 
         Random random = new Random();
         for (int i=0; i < (numeros.length - 1); i++) { 
-            int j = random.nextInt(numeros.length-1);
+            int j = random.nextInt(numeros.length);
             Image temp = numeros[i];
             numeros[i] = numeros[j];
             numeros[j] = temp;
         } 
+        verificarIndNulo();
+    }
+    
+    public void verificarIndNulo(){
+        for(int i = 0; i < numeros.length; i++){
+            if(numeros[i] == null){
+                indiceNulo = i;
+            }
+        }
     }
     
     public Rodada(Image[] _numeros, int indRecebeNumero, int indRecebeZero){

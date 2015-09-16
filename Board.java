@@ -47,9 +47,9 @@ public class Board extends JPanel implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {  
-        repaint();  
+        /*repaint();  
         if(!slideOrdenado){
-            /*
+            
             switch(moverPara){
             case "esquerda":
             xAtual = cabeca.getX();
@@ -78,10 +78,10 @@ public class Board extends JPanel implements ActionListener {
             cabeca.mover(0,28);
             moveCorpo(xAtual,yAtual,tamanho);
             break;
-            }*/
+            }
 
             
-        }
+        }*/
     }
 
     private class TAdapter extends KeyAdapter {
@@ -102,27 +102,27 @@ public class Board extends JPanel implements ActionListener {
                 switch(raiz.indiceNulo){
                     case 1:
                     raiz.setEsquerda(new Rodada(raiz.numeros,raiz.indiceNulo,0));
-                    raiz.getEsquerda();
+                    raiz = raiz.getEsquerda();
                     break;
                     case 2:
                     raiz.setEsquerda(new Rodada(raiz.numeros,raiz.indiceNulo,1));
-                    raiz.getEsquerda();
+                    raiz = raiz.getEsquerda();
                     break;
                     case 4:
                     raiz.setEsquerda(new Rodada(raiz.numeros,raiz.indiceNulo,3));
-                    raiz.getEsquerda();
+                    raiz = raiz.getEsquerda();
                     break;
                     case 5:
                     raiz.setEsquerda(new Rodada(raiz.numeros,raiz.indiceNulo,4));
-                    raiz.getEsquerda();
+                    raiz = raiz.getEsquerda();
                     break;
                     case 7:
                     raiz.setEsquerda(new Rodada(raiz.numeros,raiz.indiceNulo,6));
-                    raiz.getEsquerda();
+                    raiz = raiz.getEsquerda();
                     break;
                     case 8:
                     raiz.setEsquerda(new Rodada(raiz.numeros,raiz.indiceNulo,7));
-                    raiz.getEsquerda();
+                    raiz = raiz.getEsquerda();
                     break;
                     default:
                 }
@@ -222,6 +222,7 @@ public class Board extends JPanel implements ActionListener {
                 //raiz = raiz.getBaixo();
                 break;
             }
+            repaint();
         }
     }
 }
