@@ -88,4 +88,59 @@ public class Rodada //extends JPanel
     public Rodada getBaixo(){
         return baixo;
     }
+    
+    public void setarFilhos() {  
+        switch(indiceNulo){
+            case 0:
+            setDireita(new Rodada(numeros,indiceNulo,1));
+            setBaixo(new Rodada(numeros,indiceNulo,3));
+            break;
+            case 1:
+            setEsquerda(new Rodada(numeros,indiceNulo,0));
+            setDireita(new Rodada(numeros,indiceNulo,2));
+            setBaixo(new Rodada(numeros,indiceNulo,4));
+            break;
+            case 2:
+            setEsquerda(new Rodada(numeros,indiceNulo,1));
+            setBaixo(new Rodada(numeros,indiceNulo,5));
+            
+            break;
+            case 3:
+            setCima(new Rodada(numeros,indiceNulo,0));
+            setDireita(new Rodada(numeros,indiceNulo,4));
+            setBaixo(new Rodada(numeros,indiceNulo,6));
+            
+            break;
+            case 4:
+            setCima(new Rodada(numeros,indiceNulo,1));
+            setDireita(new Rodada(numeros,indiceNulo,5));
+            setBaixo(new Rodada(numeros,indiceNulo,7));
+            setEsquerda(new Rodada(numeros,indiceNulo,3));
+            
+            break;
+            case 5:
+            setCima(new Rodada(numeros,indiceNulo,2));
+            setBaixo(new Rodada(numeros,indiceNulo,8));
+            setEsquerda(new Rodada(numeros,indiceNulo,4));
+            
+            break;
+            case 6:
+            setCima(new Rodada(numeros,indiceNulo,3));
+            setDireita(new Rodada(numeros,indiceNulo,7));
+            
+            break;
+            case 7:
+            setCima(new Rodada(numeros,indiceNulo,4));
+            setDireita(new Rodada(numeros,indiceNulo,8));
+            setEsquerda(new Rodada(numeros,indiceNulo,6));
+            
+            break;
+            case 8:
+            setCima(new Rodada(numeros,indiceNulo,5));
+            setEsquerda(new Rodada(numeros,indiceNulo,7));
+            
+            break;
+            default:
+        }
+    }
 }

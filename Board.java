@@ -11,6 +11,7 @@ import java.io.File;
  */
 public class Board extends JPanel implements ActionListener {
     Rodada raiz;
+    Rodada atual;
     boolean slideOrdenado = false;
     private Font font;
     private Image mesa = new ImageIcon(this.getClass().getResource("images/table.jpg")).getImage();
@@ -24,7 +25,8 @@ public class Board extends JPanel implements ActionListener {
         setDoubleBuffered(true);
 
         raiz = new Rodada();
-
+        raiz.setarFilhos();
+        atual = raiz;
     }
 
     public void paint(Graphics g) {
@@ -39,7 +41,7 @@ public class Board extends JPanel implements ActionListener {
         }*/
 
         for(int i=0;i<9;i++){
-            g2d.drawImage(raiz.numeros[i],x[i],y[i],this);
+            g2d.drawImage(atual.numeros[i],x[i],y[i],this);
         }
 
         Toolkit.getDefaultToolkit().sync();
@@ -47,40 +49,59 @@ public class Board extends JPanel implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {  
-        /*repaint();  
-        if(!slideOrdenado){
+        //atual.setarFilhos();
+        /*switch(atual.indiceNulo){
+            case 0:
+            atual.setDireita(new Rodada(atual.numeros,atual.indiceNulo,1));
+            atual.setBaixo(new Rodada(atual.numeros,atual.indiceNulo,3));
+            break;
+            case 1:
+            atual.setEsquerda(new Rodada(atual.numeros,atual.indiceNulo,0));
+            atual.setDireita(new Rodada(atual.numeros,atual.indiceNulo,2));
+            atual.setBaixo(new Rodada(atual.numeros,atual.indiceNulo,4));
+            break;
+            case 2:
+            atual.setEsquerda(new Rodada(atual.numeros,atual.indiceNulo,1));
+            atual.setBaixo(new Rodada(atual.numeros,atual.indiceNulo,5));
             
-            switch(moverPara){
-            case "esquerda":
-            xAtual = cabeca.getX();
-            yAtual = cabeca.getY();
-            cabeca.mover(-28,0);
-            moveCorpo(xAtual,yAtual,tamanho);
             break;
-
-            case "direita":
-            xAtual = cabeca.getX();
-            yAtual = cabeca.getY();
-            cabeca.mover(28,0);
-            moveCorpo(xAtual,yAtual,tamanho);
-            break;
-
-            case "cima":
-            xAtual = cabeca.getX();
-            yAtual = cabeca.getY();
-            cabeca.mover(0,-28);
-            moveCorpo(xAtual,yAtual,tamanho);
-            break;
-
-            case "baixo":
-            xAtual = cabeca.getX();
-            yAtual = cabeca.getY();
-            cabeca.mover(0,28);
-            moveCorpo(xAtual,yAtual,tamanho);
-            break;
-            }
-
+            case 3:
+            atual.setCima(new Rodada(atual.numeros,atual.indiceNulo,0));
+            atual.setDireita(new Rodada(atual.numeros,atual.indiceNulo,4));
+            atual.setBaixo(new Rodada(atual.numeros,atual.indiceNulo,6));
             
+            
+            break;
+            case 4:
+            atual.setCima(new Rodada(atual.numeros,atual.indiceNulo,1));
+            atual.setDireita(new Rodada(atual.numeros,atual.indiceNulo,5));
+            atual.setBaixo(new Rodada(atual.numeros,atual.indiceNulo,7));
+            atual.setEsquerda(new Rodada(atual.numeros,atual.indiceNulo,3));
+            
+            break;
+            case 5:
+            atual.setCima(new Rodada(atual.numeros,atual.indiceNulo,2));
+            atual.setBaixo(new Rodada(atual.numeros,atual.indiceNulo,8));
+            atual.setEsquerda(new Rodada(atual.numeros,atual.indiceNulo,4));
+            
+            break;
+            case 6:
+            atual.setCima(new Rodada(atual.numeros,atual.indiceNulo,3));
+            atual.setDireita(new Rodada(atual.numeros,atual.indiceNulo,7));
+            
+            break;
+            case 7:
+            atual.setCima(new Rodada(atual.numeros,atual.indiceNulo,4));
+            atual.setDireita(new Rodada(atual.numeros,atual.indiceNulo,8));
+            atual.setEsquerda(new Rodada(atual.numeros,atual.indiceNulo,6));
+            
+            break;
+            case 8:
+            atual.setCima(new Rodada(atual.numeros,atual.indiceNulo,5));
+            atual.setEsquerda(new Rodada(atual.numeros,atual.indiceNulo,7));
+            
+            break;
+            default:
         }*/
     }
 
@@ -99,123 +120,123 @@ public class Board extends JPanel implements ActionListener {
                 break;
 
                 case KeyEvent.VK_LEFT:
-                switch(raiz.indiceNulo){
-                    case 1:
-                    raiz.setEsquerda(new Rodada(raiz.numeros,raiz.indiceNulo,0));
-                    raiz = raiz.getEsquerda();
+                switch(atual.indiceNulo){
+                    case 0:
+                    atual = atual.getDireita();
+                    atual.setarFilhos();
                     break;
-                    case 2:
-                    raiz.setEsquerda(new Rodada(raiz.numeros,raiz.indiceNulo,1));
-                    raiz = raiz.getEsquerda();
+                    case 1:
+                    atual = atual.getDireita();
+                    atual.setarFilhos();
+                    break;
+                    case 3:
+                    atual = atual.getDireita();
+                    atual.setarFilhos();
                     break;
                     case 4:
-                    raiz.setEsquerda(new Rodada(raiz.numeros,raiz.indiceNulo,3));
-                    raiz = raiz.getEsquerda();
+                    atual = atual.getDireita();
+                    atual.setarFilhos();
                     break;
-                    case 5:
-                    raiz.setEsquerda(new Rodada(raiz.numeros,raiz.indiceNulo,4));
-                    raiz = raiz.getEsquerda();
+                    case 6:
+                    atual = atual.getDireita();
+                    atual.setarFilhos();
                     break;
                     case 7:
-                    raiz.setEsquerda(new Rodada(raiz.numeros,raiz.indiceNulo,6));
-                    raiz = raiz.getEsquerda();
-                    break;
-                    case 8:
-                    raiz.setEsquerda(new Rodada(raiz.numeros,raiz.indiceNulo,7));
-                    raiz = raiz.getEsquerda();
+                    atual = atual.getDireita();
+                    atual.setarFilhos();
                     break;
                     default:
                 }
                 //raiz = raiz.getEsquerda();
                 break;
-                
+
                 case KeyEvent.VK_RIGHT:
-                switch(raiz.indiceNulo){
-                    case 0:
-                    raiz.setDireita(new Rodada(raiz.numeros,raiz.indiceNulo,1));
-                    raiz = raiz.getDireita();
-                    break;
+                switch(atual.indiceNulo){
                     case 1:
-                    raiz.setDireita(new Rodada(raiz.numeros,raiz.indiceNulo,2));
-                    raiz = raiz.getDireita();
+                    atual = atual.getEsquerda();
+                    atual.setarFilhos();
                     break;
-                    case 3:
-                    raiz.setDireita(new Rodada(raiz.numeros,raiz.indiceNulo,4));
-                    raiz = raiz.getDireita();
+                    case 2:
+                    atual = atual.getEsquerda();
+                    atual.setarFilhos();
                     break;
                     case 4:
-                    raiz.setDireita(new Rodada(raiz.numeros,raiz.indiceNulo,5));
-                    raiz = raiz.getDireita();
+                    atual = atual.getEsquerda();
+                    atual.setarFilhos();
                     break;
-                    case 6:
-                    raiz.setDireita(new Rodada(raiz.numeros,raiz.indiceNulo,7));
-                    raiz = raiz.getDireita();
+                    case 5:
+                    atual = atual.getEsquerda();
+                    atual.setarFilhos();
                     break;
                     case 7:
-                    raiz.setDireita(new Rodada(raiz.numeros,raiz.indiceNulo,8));
-                    raiz = raiz.getDireita();
+                    atual = atual.getEsquerda();
+                    atual.setarFilhos();
+                    break;
+                    case 8:
+                    atual = atual.getEsquerda();
+                    atual.setarFilhos();
                     break;
                     default:
                 }
                 //raiz = raiz.getDireita();
                 break;
-                
+
                 case KeyEvent.VK_UP:
-                switch(raiz.indiceNulo){
+                switch(atual.indiceNulo){
+                    case 0:
+                    atual = atual.getBaixo();
+                    atual.setarFilhos();
+                    break;
+                    case 1:
+                    atual = atual.getBaixo();
+                    atual.setarFilhos();
+                    break;
+                    case 2:
+                    atual = atual.getBaixo();
+                    atual.setarFilhos();
+                    break;
                     case 3:
-                    raiz.setCima(new Rodada(raiz.numeros,raiz.indiceNulo,0));
-                    raiz = raiz.getCima();
+                    atual = atual.getBaixo();
+                    atual.setarFilhos();
                     break;
                     case 4:
-                    raiz.setCima(new Rodada(raiz.numeros,raiz.indiceNulo,1));
-                    raiz = raiz.getCima();
+                    atual = atual.getBaixo();
+                    atual.setarFilhos();
                     break;
                     case 5:
-                    raiz.setCima(new Rodada(raiz.numeros,raiz.indiceNulo,2));
-                    raiz = raiz.getCima();
-                    break;
-                    case 6:
-                    raiz.setCima(new Rodada(raiz.numeros,raiz.indiceNulo,3));
-                    raiz = raiz.getCima();
-                    break;
-                    case 7:
-                    raiz.setCima(new Rodada(raiz.numeros,raiz.indiceNulo,4));
-                    raiz = raiz.getCima();
-                    break;
-                    case 8:
-                    raiz.setCima(new Rodada(raiz.numeros,raiz.indiceNulo,5));
-                    raiz = raiz.getCima();
+                    atual = atual.getBaixo();
+                    atual.setarFilhos();
                     break;
                     default:
                 }
                 //raiz = raiz.getCima();
                 break;
-                
+
                 case KeyEvent.VK_DOWN:
-                switch(raiz.indiceNulo){
-                    case 0:
-                    raiz.setBaixo(new Rodada(raiz.numeros,raiz.indiceNulo,3));
-                    raiz = raiz.getBaixo();
-                    break;
-                    case 1:
-                    raiz.setBaixo(new Rodada(raiz.numeros,raiz.indiceNulo,4));
-                    raiz = raiz.getBaixo();
-                    break;
-                    case 2:
-                    raiz.setBaixo(new Rodada(raiz.numeros,raiz.indiceNulo,5));
-                    raiz = raiz.getBaixo();
-                    break;
+                switch(atual.indiceNulo){
                     case 3:
-                    raiz.setBaixo(new Rodada(raiz.numeros,raiz.indiceNulo,6));
-                    raiz = raiz.getBaixo();
+                    atual = atual.getCima();
+                    atual.setarFilhos();
                     break;
                     case 4:
-                    raiz.setBaixo(new Rodada(raiz.numeros,raiz.indiceNulo,7));
-                    raiz = raiz.getBaixo();
+                    atual = atual.getCima();
+                    atual.setarFilhos();
                     break;
                     case 5:
-                    raiz.setBaixo(new Rodada(raiz.numeros,raiz.indiceNulo,8));
-                    raiz = raiz.getBaixo();
+                    atual = atual.getCima();
+                    atual.setarFilhos();
+                    break;
+                    case 6:
+                    atual = atual.getCima();
+                    atual.setarFilhos();
+                    break;
+                    case 7:;
+                    atual = atual.getCima();
+                    atual.setarFilhos();
+                    break;
+                    case 8:
+                    atual = atual.getCima();
+                    atual.setarFilhos();
                     break;
                     default:
                 }
